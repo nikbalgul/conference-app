@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Conference - Spring Boot</title>
+ <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+	<div class="container">
+<div class="row">
+   		<div th:each="track : ${trackList}">
+			<div class="conferenceListPanel panel panel-info">
+	        	<div class="panel-heading text-center">
+	            	<div class="panel-title"><h1>Track</h1>
+	         			<table class="table table-hover table-striped">
+	         			<thead>
+	         				<tr>
+	         				<th>Speaker</th>
+	         				<th>Topic</th>
+	         				<th>Duration</th>
+	         				<th>Time</th>
+	         				</tr>
+	         			</thead>
+	         			<tbody>
+	         				<tr th:each="conference : ${track.conferenceList}">
+	         				<td th:text="${conference.speaker}"></td>
+	         				<td th:text="${conference.topic}"></td>
+	         				<td th:text="${conference.duration}"></td>
+	         				<td th:text="${conference.time}"></td>
+	         				</tr>
+	         			</tbody>
+	         			</table>
+	            	</div>
+	            </div>
+			</div>
+   		</div>
+	</div>
+	</div>
+</body>
+</html>
